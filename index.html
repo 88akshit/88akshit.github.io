@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshit Kumar — Senior Software Engineer, Battery Systems</title>
+<meta name="description" content="Akshit Kumar — Senior Software Engineer at BMW Group building the Battery Analytics Platform. Battery science × software engineering × AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f0d;
+    --surface: #121815;
+    --surface-2: #182019;
+    --line: rgba(232,236,233,0.11);
+    --line-strong: rgba(232,236,233,0.22);
+    --text: #e9ede9;
+    --text-dim: #93a39b;
+    --text-dimmer: #5f6e67;
+    --copper: #cf8a54;
+    --copper-dim: #8a5c39;
+    --teal: #5fb3a3;
+    --teal-dim: #3d766c;
+    --amber: #e8ab4c;
+    --grid: rgba(95,179,163,0.055);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11,15,13,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-mark {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-mark .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 10px var(--teal);
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-links { }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    position: relative;
+    padding: 168px 0 90px;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--teal);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 26px; height: 1px;
+    background: var(--teal);
+  }
+
+  h1.hero-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(52px, 8.5vw, 108px);
+    line-height: 0.94;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    max-width: 920px;
+  }
+  h1.hero-title .accent { color: var(--copper); }
+
+  .hero-sub {
+    max-width: 560px;
+    margin-top: 26px;
+    font-size: 17px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .hero-sub b { color: var(--text); font-weight: 600; }
+
+  .hero-meta {
+    display: flex;
+    gap: 34px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+  .hero-meta-item .k { color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px; font-size: 10.5px; }
+  .hero-meta-item .v { color: var(--text); font-size: 14px; }
+
+  .hero-cta { display: flex; gap: 16px; margin-top: 42px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 13px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    border: 1px solid var(--line-strong);
+  }
+  .btn-primary { background: var(--teal); color: #071310; border-color: var(--teal); font-weight: 600; }
+  .btn-primary:hover { background: #74c2b3; }
+  .btn-ghost { color: var(--text); }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* Discharge curve */
+  .curve-wrap {
+    position: absolute;
+    right: -4%;
+    top: 50%;
+    transform: translateY(-46%);
+    width: 620px;
+    max-width: 46vw;
+    opacity: 0.95;
+    pointer-events: none;
+  }
+  @media (max-width: 980px) {
+    .curve-wrap { display: none; }
+  }
+  .curve-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    fill: var(--text-dimmer);
+    letter-spacing: 0.5px;
+  }
+  #dischargePath {
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: draw 2.6s cubic-bezier(.4,0,.2,1) forwards 0.3s;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  #dischargeDot {
+    offset-path: path('M20,60 L 60,61 C 140,64 180,74 230,92 C 300,116 420,120 520,128 C 600,134 640,150 660,220');
+    animation: none;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section { padding: 100px 0; border-bottom: 1px solid var(--line); }
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--copper);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: clamp(34px, 4.6vw, 56px);
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    line-height: 1;
+    max-width: 780px;
+  }
+  .section-intro {
+    max-width: 640px;
+    color: var(--text-dim);
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    margin-top: 56px;
+    align-items: start;
+  }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+
+  .about-copy p { color: var(--text-dim); margin-bottom: 18px; font-size: 15.5px; }
+  .about-copy b { color: var(--text); font-weight: 600; }
+  .about-copy .quote {
+    margin-top: 30px;
+    padding: 20px 22px;
+    border-left: 2px solid var(--copper);
+    background: var(--surface);
+    font-style: italic;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  .venn {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.15;
+  }
+  .venn-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---------- STACK ---------- */
+  .stack-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin-top: 56px;
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 860px) { .stack-cols { grid-template-columns: 1fr; } }
+  .stack-col { background: var(--bg); padding: 30px 28px; }
+  .stack-col h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+  .stack-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  .stack-item:last-child { border-bottom: none; }
+  .stack-item .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dimmer);
+  }
+
+  /* ---------- PLATFORM WORK ---------- */
+  .work-list { margin-top: 56px; display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .work-item {
+    background: var(--bg);
+    padding: 36px 34px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    transition: background 0.25s;
+  }
+  .work-item:hover { background: var(--surface); }
+  @media (max-width: 720px) { .work-item { grid-template-columns: 1fr; gap: 12px; } }
+  .work-item .wi-num {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--copper-dim);
+    text-transform: uppercase;
+  }
+  .work-item h3 { font-family: 'Big Shoulders Display', sans-serif; font-size: 26px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.2px; }
+  .work-item p { color: var(--text-dim); font-size: 14.5px; margin-bottom: 14px; }
+  .work-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    padding: 4px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 20px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- TIMELINE (charge cycle style) ---------- */
+  .timeline { margin-top: 70px; position: relative; }
+  .tl-axis {
+    position: relative;
+    height: 2px;
+    background: var(--line-strong);
+    margin: 0 0 0 0;
+  }
+  .tl-track {
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    padding-bottom: 20px;
+    scrollbar-width: thin;
+  }
+  .tl-item {
+    min-width: 200px;
+    flex: 1;
+    padding: 24px 22px 0;
+    border-left: 1px solid var(--line);
+    position: relative;
+  }
+  .tl-item:first-child { border-left: none; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--teal);
+  }
+  .tl-item.current::before { background: var(--amber); border-color: var(--amber); box-shadow: 0 0 10px var(--amber); }
+  .tl-year { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dimmer); margin-bottom: 8px; }
+  .tl-company { font-family: 'Big Shoulders Display', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; }
+  .tl-role { font-size: 12.5px; color: var(--text-dim); margin-top: 4px; line-height: 1.5; }
+  .tl-dur { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--copper); margin-top: 8px; }
+
+  /* ---------- VALUES ---------- */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+    margin-top: 56px;
+  }
+  @media (max-width: 860px) { .values-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .values-grid { grid-template-columns: 1fr; } }
+  .value-card { }
+  .value-card .vi { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--copper); margin-bottom: 12px; }
+  .value-card h4 { font-family: 'Big Shoulders Display', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+  .value-card p { font-size: 14px; color: var(--text-dim); }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer.contact {
+    padding: 110px 0 60px;
+    text-align: center;
+  }
+  footer.contact .section-tag { justify-content: center; display: flex; }
+  .contact-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 7vw, 78px);
+    text-transform: uppercase;
+    line-height: 0.98;
+    margin: 18px 0 40px;
+  }
+  .contact-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+  .foot-bottom {
+    margin-top: 90px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dimmer);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  ::selection { background: var(--teal); color: #071310; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark"><span class="dot"></span>AK</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Platform</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Senior Software Engineer · BMW Group</div>
+    <h1 class="hero-title">Building the<br>systems that<br>design <span class="accent">battery cells</span></h1>
+    <p class="hero-sub">
+      I'm <b>Akshit Kumar</b> — a software engineer with 10 years across enterprise, cloud, and battery domains, now leading platform development at BMW's Battery Analytics Platform (Cell Intelligence). I sit at a rare intersection: electrochemistry depth and full-stack engineering, applied to real cell design decisions.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="k">Location</span><span class="v">Munich, Germany</span></div>
+      <div class="hero-meta-item"><span class="k">Experience</span><span class="v">10 years</span></div>
+      <div class="hero-meta-item"><span class="k">Current focus</span><span class="v">Cell Builder · Material Explorer</span></div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#work">View the platform ↓</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <svg class="curve-wrap" viewBox="0 0 680 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- axes -->
+    <line x1="20" y1="20" x2="20" y2="230" stroke="rgba(232,236,233,0.15)" stroke-width="1"/>
+    <line x1="20" y1="230" x2="660" y2="230" stroke="rgba(232,236,233,0.15)" stroke-width="1"/>
+    <text x="14" y="14" class="curve-label" text-anchor="end">V</text>
+    <text x="660" y="248" class="curve-label" text-anchor="end">CAPACITY</text>
+    <!-- gridlines -->
+    <g stroke="rgba(232,236,233,0.05)" stroke-width="1">
+      <line x1="20" y1="80" x2="660" y2="80"/>
+      <line x1="20" y1="140" x2="660" y2="140"/>
+      <line x1="20" y1="190" x2="660" y2="190"/>
+    </g>
+    <!-- discharge curve: steep drop, plateau, steep drop -->
+    <path id="dischargePath" d="M20,60 L 60,61 C 140,64 180,74 230,92 C 300,116 420,120 520,128 C 600,134 640,150 660,220"
+      stroke="#5fb3a3" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="360" y="105" class="curve-label" text-anchor="middle" fill="#5fb3a3" opacity="0.8">plateau region — where the platform optimizes</text>
+  </svg>
+</header>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-tag">// 01 — About</div>
+    <h2 class="section-title">Two disciplines,<br>one platform</h2>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>My path ran through <b>Infosys, Oracle, Cisco and VMware</b> before I moved into battery-specific software at <b>TWAICE</b>, and then into leading platform development at <b>BMW Group</b>. That sequence matters — I came to batteries already knowing how to build resilient, scalable software, then spent years learning the electrochemistry itself.</p>
+        <p>Today I lead <b>Cell Builder</b>, a physics-based calculator for prismatic, cylindrical, and pouch cell design, and <b>Material Explorer</b>, a discovery tool for best-fit battery materials — both part of BMW's Battery Analytics Platform supporting next-generation cell engineering.</p>
+        <p>I also manage a team of interns across different workflows in battery cell research, and work daily across React, TypeScript, Java Spring Boot, Python, AWS, and LLM-driven RAG pipelines.</p>
+        <div class="quote">"Dive deep into solutions and improvise on architecture, code quality, for future-proof business needs and maintainability."</div>
+      </div>
+      <svg class="venn" viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="118" fill="none" stroke="#cf8a54" stroke-width="1.6" opacity="0.85"/>
+        <circle cx="250" cy="150" r="118" fill="none" stroke="#5fb3a3" stroke-width="1.6" opacity="0.85"/>
+        <circle cx="200" cy="245" r="118" fill="none" stroke="#e8ab4c" stroke-width="1.6" opacity="0.85"/>
+        <text x="95" y="90" class="venn-label" fill="#cf8a54">Battery</text>
+        <text x="95" y="106" class="venn-label" fill="#cf8a54">Science</text>
+        <text x="255" y="90" class="venn-label" fill="#5fb3a3">Software</text>
+        <text x="255" y="106" class="venn-label" fill="#5fb3a3">Engineering</text>
+        <text x="165" y="340" class="venn-label" fill="#e8ab4c">Applied AI</text>
+        <text x="200" y="205" class="venn-label" fill="#e9ede9" text-anchor="middle" font-size="12">Cell Builder</text>
+        <text x="200" y="222" class="venn-label" fill="#e9ede9" text-anchor="middle" font-size="12">Material Explorer</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-tag">// 02 — Platform work</div>
+    <h2 class="section-title">What I've built at BMW</h2>
+    <p class="section-intro">Leading design and development of the Battery Analytics Platform — supporting cell engineering and research for next-generation BMW vehicles.</p>
+    <div class="work-list">
+      <div class="work-item">
+        <div class="wi-num">Cell<br>Builder</div>
+        <div>
+          <h3>Physics-based cell design calculator</h3>
+          <p>Creates Prismatic, Cylindrical & Pouch cell designs at OEM/supplier level. Takes material and geometric inputs and computes the full cell performance budget — capacity, energy density, mass, stack thickness, irreversible losses, and more.</p>
+          <div class="work-tags">
+            <span class="pill">Physics-informed</span>
+            <span class="pill">React + TypeScript</span>
+            <span class="pill">Java Spring Boot</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="wi-num">Material<br>Explorer</div>
+        <div>
+          <h3>Best-fit materials discovery tool</h3>
+          <p>Exploration engine for finding best-fitted battery materials for cell manufacturing — grounded in a hybrid SQL + RAG architecture over proprietary materials data.</p>
+          <div class="work-tags">
+            <span class="pill">RAG pipelines</span>
+            <span class="pill">LLM APIs</span>
+            <span class="pill">MySQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="wi-num">Team<br>Leadership</div>
+        <div>
+          <h3>Managing intern workflows in cell research</h3>
+          <p>Directing a team of interns across different workflows in battery cell research, improvising process as the platform's scope grows.</p>
+          <div class="work-tags">
+            <span class="pill">Mentoring</span>
+            <span class="pill">Process design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="section-tag">// 03 — Stack</div>
+    <h2 class="section-title">Tools I build with</h2>
+    <div class="stack-cols">
+      <div class="stack-col">
+        <h3>Frontend</h3>
+        <div class="stack-item"><span>React</span><span class="tag">daily</span></div>
+        <div class="stack-item"><span>TypeScript</span><span class="tag">daily</span></div>
+        <div class="stack-item"><span>Angular</span><span class="tag">prior</span></div>
+      </div>
+      <div class="stack-col">
+        <h3>Backend & Data</h3>
+        <div class="stack-item"><span>Node.js</span><span class="tag">daily</span></div>
+        <div class="stack-item"><span>Java Spring Boot</span><span class="tag">daily</span></div>
+        <div class="stack-item"><span>Python</span><span class="tag">daily</span></div>
+        <div class="stack-item"><span>MySQL / PostgreSQL</span><span class="tag">daily</span></div>
+      </div>
+      <div class="stack-col">
+        <h3>AI / Cloud</h3>
+        <div class="stack-item"><span>LLM APIs + RAG</span><span class="tag">daily</span></div>
+        <div class="stack-item"><span>MCP tools</span><span class="tag">current</span></div>
+        <div class="stack-item"><span>AWS</span><span class="tag">daily</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="section-tag">// 04 — Journey</div>
+    <h2 class="section-title">A decade, charted<br>like a charge cycle</h2>
+    <div class="timeline">
+      <div class="tl-track">
+        <div class="tl-item">
+          <div class="tl-year">2016 – 2019</div>
+          <div class="tl-company">Infosys</div>
+          <div class="tl-role">System Engineer → Senior System Engineer</div>
+          <div class="tl-dur">3 YRS 5 MO</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2019 – 2021</div>
+          <div class="tl-company">Oracle</div>
+          <div class="tl-role">Application Engineer → Senior Application Engineer</div>
+          <div class="tl-dur">2 YRS 1 MO</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2021 – 2022</div>
+          <div class="tl-company">Cisco</div>
+          <div class="tl-role">Software Engineer III</div>
+          <div class="tl-dur">6 MO</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2022</div>
+          <div class="tl-company">VMware</div>
+          <div class="tl-role">Member of Technical Staff 3</div>
+          <div class="tl-dur">6 MO</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2022 – 2024</div>
+          <div class="tl-company">TWAICE</div>
+          <div class="tl-role">Senior Software Engineer — Battery Quick Check</div>
+          <div class="tl-dur">1 YR 11 MO</div>
+        </div>
+        <div class="tl-item current">
+          <div class="tl-year">2024 – Present</div>
+          <div class="tl-company">BMW Group</div>
+          <div class="tl-role">Senior Software Engineer — Battery Analytics Platform</div>
+          <div class="tl-dur">1 YR 10 MO · CURRENT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="values">
+  <div class="wrap">
+    <div class="section-tag">// 05 — Values</div>
+    <h2 class="section-title">How I approach the work</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="vi">01</div>
+        <h4>Architecture First</h4>
+        <p>Scalable, resilient design decisions before a line of code — built for maintainability, not just delivery.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">02</div>
+        <h4>Domain Depth</h4>
+        <p>Software is only as good as the domain understanding behind it — I invest real time in electrochemistry, not just APIs.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">03</div>
+        <h4>Physics-Grounded AI</h4>
+        <p>ML suggestions are only useful when checked against real physical feasibility — that's why the calculator and the model talk to each other.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">04</div>
+        <h4>Mentorship</h4>
+        <p>Growing the interns I manage into independent contributors is as important to me as shipping features.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">05</div>
+        <h4>Future-Proofing</h4>
+        <p>Code quality and clean architecture for business needs that haven't been written yet.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">06</div>
+        <h4>Dive Deep</h4>
+        <p>Improvise on solutions rather than settle for the first one that compiles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-tag">// 06 — Contact</div>
+    <h2 class="contact-title">Let's talk<br>batteries.</h2>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/akshit-kr" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="mailto:you@example.com">Email me</a>
+      <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot-bottom wrap" style="max-width:1180px; margin-left:auto; margin-right:auto;">
+      <span>© 2026 Akshit Kumar</span>
+      <span>Munich, Germany</span>
+      <span>Built with plain HTML/CSS/JS — hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
