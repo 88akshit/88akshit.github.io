@@ -3,28 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akshit Kumar — Senior Software Engineer, Battery Systems</title>
+<title>Akshit Kumar — Senior Software Engineer</title>
 <meta name="description" content="Akshit Kumar — Senior Software Engineer at BMW Group building Cell Intelligence, the Battery Analytics Platform. Battery science × software engineering × AI.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #12151a;
-    --surface: #191d23;
-    --surface-2: #20252c;
-    --line: rgba(216,224,230,0.10);
-    --line-strong: rgba(216,224,230,0.24);
-    --text: #eef1f4;
-    --text-dim: #8d98a3;
-    --text-dimmer: #4d555e;
-    --copper: #c68355;
-    --copper-dim: #7a5136;
-    --teal: #52bdb0;
-    --teal-dim: #316f66;
-    --silver: #aab6c0;
-    --amber: #e3a83f;
-    --grid: rgba(82,189,176,0.05);
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1c2333;
+    --line: rgba(201,209,217,0.08);
+    --line-strong: rgba(201,209,217,0.18);
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --text-dimmer: #484f58;
+    --accent: #58a6ff;
+    --accent-dim: #1f3a5f;
+    --green: #3fb950;
+    --green-dim: #1b3824;
+    --orange: #d29922;
+    --purple: #bc8cff;
+    --red: #f85149;
+    --grid: rgba(88,166,255,0.04);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,7 +40,7 @@
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 38px 38px;
+    background-size: 42px 42px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -47,40 +48,41 @@
   }
 
   a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .mono { font-family: 'JetBrains Mono', monospace; }
   .display { font-family: 'Space Grotesk', sans-serif; }
 
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 
-  /* ---------- BLUEPRINT CORNER TICKS ---------- */
-  .ticked { position: relative; }
-  .ticked::before, .ticked::after,
-  .ticked .tick-br, .ticked .tick-bl {
-    content: '';
-    position: absolute;
-    width: 14px; height: 14px;
-    border-color: var(--teal-dim);
-    opacity: 0.7;
-  }
-  .ticked::before { top: 0; left: 0; border-top: 1.5px solid; border-left: 1.5px solid; }
-  .ticked::after { top: 0; right: 0; border-top: 1.5px solid; border-right: 1.5px solid; }
-  .ticked .tick-bl { bottom: 0; left: 0; border-bottom: 1.5px solid; border-left: 1.5px solid; }
-  .ticked .tick-br { bottom: 0; right: 0; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+  ::selection { background: var(--accent); color: #0d1117; }
 
   /* ---------- NAV ---------- */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(18,21,26,0.88);
-    backdrop-filter: blur(10px);
+    background: rgba(13,17,23,0.88);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
-  .nav-mark { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 9px; letter-spacing: 0.2px; }
-  .nav-mark svg { flex-shrink: 0; }
+  .nav-mark {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px;
+    display: flex; align-items: center; gap: 10px; letter-spacing: 0.2px;
+    color: var(--text);
+  }
+  .nav-mark .cursor { display: inline-block; width: 8px; height: 18px; background: var(--accent); animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
   .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-decoration: none; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--teal); }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-decoration: none;
+    color: var(--text-dim); letter-spacing: 0.5px; transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+    background: var(--accent); transition: width 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
   @media (max-width: 760px) { .nav-links { display: none; } }
 
   /* ---------- HERO ---------- */
@@ -91,17 +93,18 @@
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 40px;
-    align-items: center;
+    align-items: start;
   }
   @media (max-width: 980px) { header.hero { grid-template-columns: 1fr; padding-top: 130px; } }
 
-  .spec-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px; color: var(--teal);
-    letter-spacing: 2.5px; text-transform: uppercase;
-    margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--green); letter-spacing: 0.5px; margin-bottom: 20px;
+    background: var(--green-dim); padding: 6px 14px; border-radius: 20px;
+    border: 1px solid rgba(63,185,80,0.2);
   }
-  .spec-tag::before { content: ''; width: 22px; height: 1px; background: var(--teal); }
+  .status-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
 
   h1.hero-title {
     font-family: 'Space Grotesk', sans-serif;
@@ -111,133 +114,226 @@
     letter-spacing: -0.5px;
     max-width: 560px;
   }
-  h1.hero-title .accent { color: var(--copper); }
+  h1.hero-title .accent { color: var(--accent); }
+  h1.hero-title .green { color: var(--green); }
 
-  .hero-sub { max-width: 480px; margin-top: 22px; font-size: 16px; color: var(--text-dim); }
+  .hero-sub { max-width: 500px; margin-top: 22px; font-size: 16px; color: var(--text-dim); line-height: 1.7; }
   .hero-sub b { color: var(--text); font-weight: 600; }
 
   .hero-cta { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
   .btn {
     font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.5px;
-    padding: 12px 22px; border-radius: 2px; text-decoration: none;
+    padding: 12px 22px; border-radius: 6px; text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
-    transition: all 0.2s; border: 1px solid var(--line-strong);
+    transition: all 0.2s; border: 1px solid var(--line-strong); cursor: pointer;
   }
-  .btn-primary { background: var(--teal); color: #0a1614; border-color: var(--teal); font-weight: 600; }
-  .btn-primary:hover { background: #69cabd; }
-  .btn-ghost { color: var(--text); }
-  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .btn-primary { background: var(--accent); color: #0d1117; border-color: var(--accent); font-weight: 600; }
+  .btn-primary:hover { background: #79c0ff; }
+  .btn-ghost { color: var(--text-dim); }
+  .btn-ghost:hover { border-color: var(--accent-dim); color: var(--accent); }
 
-  .hero-callouts { display: flex; gap: 28px; margin-top: 40px; flex-wrap: wrap; }
-  .callout .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px; }
-  .callout .v { font-size: 13.5px; color: var(--text); }
-
-  /* exploded cell diagram */
-  .cell-diagram { position: relative; width: 100%; max-width: 460px; margin: 0 auto; }
-  .layer-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
+  .hero-callouts { display: flex; gap: 32px; margin-top: 40px; flex-wrap: wrap; }
+  .callout { display: flex; flex-direction: column; gap: 2px; }
+  .callout .k {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 0.8px;
   }
-  .ring-anim { animation: ringIn 1s ease-out forwards; opacity: 0; }
-  @keyframes ringIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .callout .v { font-size: 13.5px; color: var(--text); font-weight: 500; }
+
+  /* ---------- TERMINAL ---------- */
+  .terminal {
+    background: #0d1117; border: 1px solid var(--line-strong);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+    width: 100%; max-width: 520px; margin: 10px auto 0;
+  }
+  .terminal-bar {
+    background: var(--surface-2); padding: 10px 16px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .term-dot.r { background: #ff5f56; }
+  .term-dot.y { background: #ffbd2e; }
+  .term-dot.g { background: #27c93f; }
+  .term-title {
+    font-size: 10.5px; color: var(--text-dimmer);
+    margin-left: 8px; letter-spacing: 0.3px;
+  }
+  .terminal-body { padding: 20px 22px; line-height: 1.8; }
+  .terminal-body .prompt { color: var(--green); }
+  .terminal-body .prompt span { color: var(--accent); }
+  .terminal-body .line { color: var(--text-dim); }
+  .terminal-body .line .key { color: var(--purple); }
+  .terminal-body .line .str { color: var(--orange); }
+  .terminal-body .line .num { color: var(--green); }
+  .terminal-body .line .bool { color: var(--accent); }
+  .terminal-body .cursor-line { display: flex; align-items: center; gap: 0; }
+  .terminal-body .cursor-line .prompt { color: var(--green); }
+  .terminal-body .cursor-block {
+    display: inline-block; width: 8px; height: 16px;
+    background: var(--accent); margin-left: 6px;
+    animation: blink 1s step-end infinite;
+  }
 
   /* ---------- SECTIONS ---------- */
   .section { padding: 96px 0; border-bottom: 1px solid var(--line); position: relative; }
-  .spec-num { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--copper); letter-spacing: 2px; margin-bottom: 14px; text-transform: uppercase; }
+  .spec-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent-dim); letter-spacing: 1px; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .spec-num::after { content: ''; flex: 1; height: 1px; background: var(--line); max-width: 120px; }
   .section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -0.3px; line-height: 1.1; max-width: 700px; }
   .section-intro { max-width: 620px; color: var(--text-dim); margin-top: 18px; font-size: 15.5px; }
 
-  /* ---------- DATASHEET (about) ---------- */
-  .datasheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 54px; }
-  @media (max-width: 880px) { .datasheet-grid { grid-template-columns: 1fr; } }
+  /* ---------- README (about) ---------- */
+  .readme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 54px; }
+  @media (max-width: 880px) { .readme-grid { grid-template-columns: 1fr; } }
   .about-copy p { color: var(--text-dim); margin-bottom: 16px; font-size: 15px; }
   .about-copy b { color: var(--text); font-weight: 600; }
-  .about-copy .quote { margin-top: 26px; padding: 18px 20px; border-left: 2px solid var(--copper); background: var(--surface); font-style: italic; font-size: 14.5px; }
-
-  .datasheet {
-    background: var(--surface); border: 1px solid var(--line-strong); padding: 26px 26px 10px; position: relative;
+  .about-copy .highlight {
+    margin-top: 26px; padding: 18px 20px;
+    border-left: 2px solid var(--accent);
+    background: var(--surface);
+    font-style: italic; font-size: 14.5px;
+    border-radius: 0 6px 6px 0;
   }
-  .datasheet-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line-strong); }
-  .datasheet-head .dh-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; color: var(--teal); text-transform: uppercase; }
-  .datasheet-head .dh-rev { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-dimmer); }
-  .ds-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
-  .ds-row:last-child { border-bottom: none; }
-  .ds-row .ds-k { color: var(--text-dimmer); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .ds-row .ds-v { color: var(--text); text-align: right; font-weight: 500; max-width: 60%; }
+
+  .readme-card {
+    background: var(--surface); border: 1px solid var(--line-strong);
+    border-radius: 10px; padding: 0; position: relative; overflow: hidden;
+  }
+  .readme-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 22px; background: var(--surface-2);
+    border-bottom: 1px solid var(--line-strong);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .readme-header .rh-title { font-size: 11px; color: var(--accent); letter-spacing: 0.5px; }
+  .readme-header .rh-meta { font-size: 10px; color: var(--text-dimmer); }
+  .readme-body { padding: 6px 0; }
+  .readme-row {
+    display: flex; padding: 12px 22px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px; align-items: center;
+  }
+  .readme-row:last-child { border-bottom: none; }
+  .readme-row .rk {
+    color: var(--text-dimmer); font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; min-width: 130px; letter-spacing: 0.3px;
+  }
+  .readme-row .rk .hash { color: var(--text-dimmer); }
+  .readme-row .rv { color: var(--text); font-weight: 500; }
+  .readme-row .rv a { color: var(--accent); text-decoration: none; }
+  .readme-row .rv a:hover { text-decoration: underline; }
+  .readme-row .rv .tag {
+    display: inline-block; font-size: 10px; font-family: 'JetBrains Mono', monospace;
+    padding: 2px 8px; border-radius: 12px; background: var(--accent-dim);
+    color: var(--accent); letter-spacing: 0.3px;
+  }
+  .readme-row .rv .tag.green { background: var(--green-dim); color: var(--green); }
 
   /* ---------- MODULE CARDS (platform work) ---------- */
-  .module-list { margin-top: 54px; display: flex; flex-direction: column; gap: 18px; }
+  .module-list { margin-top: 54px; display: flex; flex-direction: column; gap: 16px; }
   .module {
     background: var(--surface); border: 1px solid var(--line-strong);
-    padding: 30px 32px; position: relative; display: grid; grid-template-columns: 160px 1fr; gap: 28px;
-    transition: border-color 0.25s;
+    border-radius: 10px; padding: 28px 32px;
+    position: relative; display: grid; grid-template-columns: 160px 1fr; gap: 24px;
+    transition: border-color 0.25s, box-shadow 0.25s;
   }
-  .module:hover { border-color: var(--teal-dim); }
+  .module:hover { border-color: var(--accent-dim); box-shadow: 0 0 0 1px var(--accent-dim); }
   @media (max-width: 720px) { .module { grid-template-columns: 1fr; gap: 12px; } }
-  .module .m-id { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--copper); letter-spacing: 1px; }
-  .module .m-id .big { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: var(--text-dim); margin-top: 6px; font-weight: 500; }
-  .module h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-  .module p { color: var(--text-dim); font-size: 14px; margin-bottom: 14px; }
+  .module .m-id {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent); letter-spacing: 0.3px;
+  }
+  .module .m-id .big { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 16px; color: var(--text); margin-top: 6px; font-weight: 600; }
+  .module h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .module p { color: var(--text-dim); font-size: 14px; margin-bottom: 14px; line-height: 1.7; }
   .module-pins { display: flex; gap: 8px; flex-wrap: wrap; }
-  .pin { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 4px 10px; border: 1px solid var(--line-strong); border-radius: 3px; color: var(--text-dim); position: relative; }
+  .pin {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    padding: 4px 10px; border: 1px solid var(--line-strong);
+    border-radius: 4px; color: var(--text-dim); background: var(--bg);
+  }
 
   /* ---------- STACK ---------- */
-  .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-strong); margin-top: 54px; border: 1px solid var(--line-strong); }
+  .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-strong); margin-top: 54px; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; }
   @media (max-width: 860px) { .stack-grid { grid-template-columns: 1fr; } }
   .stack-block { background: var(--bg); padding: 28px 26px; }
-  .stack-block h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+  .stack-block h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
   .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { font-size: 13px; padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 3px; color: var(--text-dim); background: var(--surface); }
-
-  /* ---------- BATTERY PACK CAREER TIMELINE ---------- */
-  .pack { margin-top: 60px; }
-  .pack-rail { display: flex; align-items: center; overflow-x: auto; padding: 30px 6px 26px; gap: 0; }
-  .cell-unit { display: flex; align-items: center; flex-shrink: 0; }
-  .cell-body {
-    width: 132px; padding: 18px 14px;
-    background: var(--surface); border: 1.5px solid var(--line-strong);
-    border-radius: 10px 10px 6px 6px;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
+  .chip {
+    font-size: 13px; padding: 6px 12px;
+    border: 1px solid var(--line-strong); border-radius: 6px;
+    color: var(--text-dim); background: var(--surface);
+    transition: border-color 0.15s, color 0.15s;
   }
-  .cell-body:hover { border-color: var(--teal); transform: translateY(-3px); }
-  .cell-body.current { border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
-  .cell-cap { width: 40px; height: 6px; background: var(--line-strong); border-radius: 3px 3px 0 0; margin: -18px auto 10px; }
-  .cell-body.current .cell-cap { background: var(--amber); }
-  .cell-year { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--text-dimmer); margin-bottom: 6px; }
-  .cell-co { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; line-height: 1.15; }
-  .cell-role { font-size: 10.5px; color: var(--text-dim); margin-top: 6px; line-height: 1.4; }
-  .cell-dur { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--copper); margin-top: 8px; }
-  .weld { width: 30px; height: 2px; background: repeating-linear-gradient(90deg, var(--silver) 0, var(--silver) 4px, transparent 4px, transparent 8px); flex-shrink: 0; opacity: 0.5; }
+  .chip:hover { border-color: var(--accent-dim); color: var(--accent); }
 
-  .pack-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
-  .pack-meta span { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; padding: 5px 12px; border: 1px solid var(--line-strong); border-radius: 20px; color: var(--text-dim); }
+  /* ---------- TIMELINE ---------- */
+  .tl { margin-top: 54px; }
+  .tl-track { position: relative; display: flex; flex-direction: column; gap: 0; }
+  .tl-line {
+    position: absolute; left: 23px; top: 32px; bottom: 32px;
+    width: 2px; background: linear-gradient(to bottom, var(--accent-dim), var(--line-strong));
+  }
+  .tl-item {
+    display: flex; gap: 24px; padding: 20px 0; position: relative;
+  }
+  .tl-dot {
+    width: 48px; display: flex; justify-content: center; flex-shrink: 0; padding-top: 2px;
+  }
+  .tl-dot-inner {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--surface-2); border: 2px solid var(--accent-dim);
+    z-index: 1; transition: all 0.2s;
+  }
+  .tl-item:hover .tl-dot-inner { background: var(--accent-dim); border-color: var(--accent); box-shadow: 0 0 12px rgba(88,166,255,0.3); }
+  .tl-item.current .tl-dot-inner { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px rgba(88,166,255,0.3); }
+  .tl-body {
+    flex: 1; background: var(--surface); border: 1px solid var(--line-strong);
+    border-radius: 8px; padding: 18px 22px;
+    transition: border-color 0.2s;
+  }
+  .tl-item:hover .tl-body { border-color: var(--accent-dim); }
+  .tl-item.current .tl-body { border-color: var(--accent-dim); }
+  .tl-year { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-dimmer); margin-bottom: 4px; }
+  .tl-co { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; }
+  .tl-role { font-size: 12.5px; color: var(--text-dim); margin-top: 4px; }
+  .tl-dur { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--text-dimmer); margin-top: 8px; display: inline-block; background: var(--bg); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--line); }
 
-  /* ---------- VALUES / HANDLING NOTES ---------- */
-  .handling-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-strong); margin-top: 54px; border: 1px solid var(--line-strong); }
-  @media (max-width: 860px) { .handling-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .handling-grid { grid-template-columns: 1fr; } }
-  .handling-item { background: var(--bg); padding: 24px 22px; }
-  .handling-item .hi-code { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--copper); margin-bottom: 10px; }
-  .handling-item h5 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-  .handling-item p { font-size: 13px; color: var(--text-dim); }
+  .tl-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .tl-meta span {
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    padding: 5px 12px; border: 1px solid var(--line-strong);
+    border-radius: 20px; color: var(--text-dimmer);
+    background: var(--surface);
+  }
+  .tl-meta span .hl { color: var(--accent); }
 
-  /* ---------- CONTACT ---------- */
+  /* ---------- PRINCIPLES ---------- */
+  .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-strong); margin-top: 54px; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; }
+  @media (max-width: 860px) { .principles-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .principles-grid { grid-template-columns: 1fr; } }
+  .principle-item { background: var(--bg); padding: 24px 22px; }
+  .principle-item .pi-code { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--accent-dim); margin-bottom: 10px; letter-spacing: 0.5px; }
+  .principle-item h5 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .principle-item p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+
+  /* ---------- FOOTER / CONTACT ---------- */
   footer.contact { padding: 110px 0 60px; text-align: center; }
-  .stamp {
-    display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
-    border: 2px solid var(--teal-dim); border-radius: 50%;
-    width: 108px; height: 108px; justify-content: center;
-    transform: rotate(-8deg); margin-bottom: 26px; opacity: 0.9;
-  }
-  .stamp span { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--teal); }
-  .stamp .big { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--teal); letter-spacing: 0.5px; }
-
   .contact-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5.4vw, 58px); letter-spacing: -0.5px; margin: 0 0 34px; }
+  .contact-title .accent { color: var(--accent); }
   .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-  .foot-bottom { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-dimmer); flex-wrap: wrap; gap: 10px; }
-
-  ::selection { background: var(--teal); color: #0a1614; }
+  .foot-bottom {
+    margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    color: var(--text-dimmer); flex-wrap: wrap; gap: 10px;
+  }
 </style>
 </head>
 <body>
@@ -245,106 +341,94 @@
 <nav>
   <div class="wrap">
     <div class="nav-mark">
-      <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9.5" stroke="#52bdb0" stroke-width="1.4" fill="none"/><circle cx="11" cy="11" r="4.5" stroke="#c68355" stroke-width="1.4" fill="none"/></svg>
-      AK
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <rect x="1" y="1" width="18" height="18" rx="4" stroke="#58a6ff" stroke-width="1.5" fill="none"/>
+        <path d="M6 10h8M10 6v8" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      akshit_kr
+      <span class="cursor"></span>
     </div>
     <ul class="nav-links">
-      <li><a href="#about">Datasheet</a></li>
-      <li><a href="#work">Modules</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#journey">Pack</a></li>
-      <li><a href="#values">Handling</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">~/about</a></li>
+      <li><a href="#work">~/work</a></li>
+      <li><a href="#stack">~/stack</a></li>
+      <li><a href="#journey">~/journey</a></li>
+      <li><a href="#values">~/values</a></li>
+      <li><a href="#contact">~/contact</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap" style="grid-column: 1;">
-    <div class="spec-tag">Senior Software Engineer · BMW Group</div>
-    <h1 class="hero-title">Engineered in layers, <span class="accent">like the cells I design for.</span></h1>
+    <div class="status-badge"><span class="dot"></span> Open to opportunities</div>
+    <h1 class="hero-title">Software engineer with a <span class="accent">battery core</span> and a <span class="green">clean stack</span>.</h1>
     <p class="hero-sub">
       I'm <b>Akshit Kumar</b>. Ten years of software engineering, the last three spent building platforms for battery cell design and materials discovery — currently leading <b>Cell Intelligence</b>, BMW's Battery Analytics Platform.
     </p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#work">Inspect the modules ↓</a>
+      <a class="btn btn-primary" href="#work">View projects ↓</a>
       <a class="btn btn-ghost" href="#contact">Get in touch</a>
     </div>
     <div class="hero-callouts">
-      <div class="callout"><span class="k">Based in</span><span class="v">Munich, Germany</span></div>
+      <div class="callout"><span class="k">Location</span><span class="v">Munich, Germany</span></div>
       <div class="callout"><span class="k">Experience</span><span class="v">10 years</span></div>
       <div class="callout"><span class="k">Building</span><span class="v">Cell Builder · Material Explorer</span></div>
     </div>
   </div>
 
-  <div class="cell-diagram" aria-hidden="true">
-    <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg" width="100%">
-      <!-- leader lines -->
-      <g stroke="#4d555e" stroke-width="1">
-        <line x1="210" y1="60"  x2="330" y2="60"/>
-        <line x1="210" y1="140" x2="345" y2="140"/>
-        <line x1="210" y1="220" x2="330" y2="220"/>
-        <line x1="210" y1="300" x2="345" y2="300"/>
-        <line x1="210" y1="380" x2="330" y2="380"/>
-      </g>
-      <!-- exploded rings, offset vertically -->
-      <g class="ring-anim" style="animation-delay:.1s">
-        <ellipse cx="150" cy="60" rx="90" ry="26" fill="none" stroke="#aab6c0" stroke-width="2.5"/>
-      </g>
-      <g class="ring-anim" style="animation-delay:.25s">
-        <ellipse cx="150" cy="140" rx="78" ry="22" fill="#c6835518" stroke="#c68355" stroke-width="2.5"/>
-      </g>
-      <g class="ring-anim" style="animation-delay:.4s">
-        <ellipse cx="150" cy="220" rx="66" ry="19" fill="#eef1f410" stroke="#eef1f4" stroke-width="2"/>
-      </g>
-      <g class="ring-anim" style="animation-delay:.55s">
-        <ellipse cx="150" cy="300" rx="54" ry="16" fill="#52bdb018" stroke="#52bdb0" stroke-width="2.5"/>
-      </g>
-      <g class="ring-anim" style="animation-delay:.7s">
-        <ellipse cx="150" cy="380" rx="40" ry="13" fill="#4d555e30" stroke="#8d98a3" stroke-width="2"/>
-      </g>
-      <!-- labels -->
-      <text x="336" y="55" class="layer-label" fill="#aab6c0">CAN</text>
-      <text x="336" y="68" class="layer-label" fill="#4d555e" font-size="9">steel casing</text>
-      <text x="351" y="135" class="layer-label" fill="#c68355">CATHODE</text>
-      <text x="351" y="148" class="layer-label" fill="#4d555e" font-size="9">NMC / LFP</text>
-      <text x="336" y="215" class="layer-label" fill="#eef1f4">SEPARATOR</text>
-      <text x="336" y="228" class="layer-label" fill="#4d555e" font-size="9">ceramic-coated</text>
-      <text x="351" y="295" class="layer-label" fill="#52bdb0">ANODE</text>
-      <text x="351" y="308" class="layer-label" fill="#4d555e" font-size="9">graphite / Si</text>
-      <text x="336" y="375" class="layer-label" fill="#8d98a3">CORE</text>
-      <text x="336" y="388" class="layer-label" fill="#4d555e" font-size="9">current collector</text>
-    </svg>
+  <div class="terminal" aria-hidden="true">
+    <div class="terminal-bar">
+      <span class="term-dot r"></span>
+      <span class="term-dot y"></span>
+      <span class="term-dot g"></span>
+      <span class="term-title">zsh — profile — 80×24</span>
+    </div>
+    <div class="terminal-body">
+      <div class="line"><span class="prompt">akshit_kr@bmw</span> <span style="color:var(--accent)">~</span> $ cat profile.json</div>
+      <div class="line" style="color:var(--text-dim)">{</div>
+      <div class="line">  <span class="key">"name"</span>: <span class="str">"Akshit Kumar"</span>,</div>
+      <div class="line">  <span class="key">"title"</span>: <span class="str">"Senior Software Engineer"</span>,</div>
+      <div class="line">  <span class="key">"domain"</span>: <span class="str">"Software × Battery Systems"</span>,</div>
+      <div class="line">  <span class="key">"location"</span>: <span class="str">"Munich, Germany"</span>,</div>
+      <div class="line">  <span class="key">"experience</span><span class="key">"</span>: <span class="num">10</span>,</div>
+      <div class="line">  <span class="key">"stack"</span>: [<span class="str">"React"</span>, <span class="str">"TypeScript"</span>, <span class="str">"Python"</span>, <span class="str">"Java"</span>, <span class="str">"AWS"</span>],</div>
+      <div class="line">  <span class="key">"building"</span>: <span class="str">"Cell Intelligence @ BMW Group"</span>,</div>
+      <div class="line">  <span class="key">"open_to_work</span><span class="key">"</span>: <span class="bool">true</span></div>
+      <div class="line" style="color:var(--text-dim)">}</div>
+      <div class="cursor-line" style="margin-top: 6px"><span class="prompt">aks hit_kr@bmw</span> <span style="color:var(--accent)">~</span> $ <span class="cursor-block"></span></div>
+    </div>
   </div>
 </header>
 
 <section class="section" id="about">
   <div class="wrap">
-    <div class="spec-num">SPEC 01 — PROFILE</div>
-    <h2 class="section-title">Two disciplines, one datasheet</h2>
-    <div class="datasheet-grid">
+    <div class="spec-num">SECTION 01 — README</div>
+    <h2 class="section-title">Two disciplines, one profile</h2>
+    <div class="readme-grid">
       <div class="about-copy">
         <p>My path ran through <b>Infosys, Oracle, Cisco, and VMware</b> before I moved into battery-specific software at <b>TWAICE</b>, then into leading platform development at <b>BMW Group</b>. That order matters — I arrived at batteries already knowing how to build resilient software, then spent years earning the electrochemistry.</p>
         <p>Today I lead <b>Cell Builder</b>, a physics-based calculator for prismatic, cylindrical, and pouch cell design, and <b>Material Explorer</b>, a discovery tool for best-fit battery materials — both inside Cell Intelligence, BMW's Battery Analytics Platform.</p>
         <p>I manage a team of interns across battery cell research workflows, and work daily across React, TypeScript, Java Spring Boot, Python, AWS, and LLM-driven RAG pipelines.</p>
-        <div class="quote">"Dive deep into solutions and improvise on architecture, code quality, for future-proof business needs and maintainability."</div>
+        <div class="highlight">"Dive deep into solutions and improvise on architecture, code quality, for future-proof business needs and maintainability."</div>
       </div>
 
-      <div class="datasheet ticked">
-        <span class="tick-bl"></span><span class="tick-br"></span>
-        <div class="datasheet-head">
-          <span class="dh-title">Component Datasheet</span>
-          <span class="dh-rev">REV 2026.07</span>
+      <div class="readme-card">
+        <div class="readme-header">
+          <span class="rh-title">README.md</span>
+          <span class="rh-meta">v2026.07 / 2a3f1b9</span>
         </div>
-        <div class="ds-row"><span class="ds-k">Name</span><span class="ds-v">Akshit Kumar</span></div>
-        <div class="ds-row"><span class="ds-k">Role</span><span class="ds-v">Senior Software Engineer</span></div>
-        <div class="ds-row"><span class="ds-k">Assembly</span><span class="ds-v">BMW Group — Cell Intelligence</span></div>
-        <div class="ds-row"><span class="ds-k">Location</span><span class="ds-v">Munich, Germany</span></div>
-        <div class="ds-row"><span class="ds-k">Duty cycle</span><span class="ds-v">10 years continuous operation</span></div>
-        <div class="ds-row"><span class="ds-k">Prior stages</span><span class="ds-v">Infosys → Oracle → Cisco → VMware → TWAICE</span></div>
-        <div class="ds-row"><span class="ds-k">Core stack</span><span class="ds-v">React · TypeScript · Python · Java</span></div>
-        <div class="ds-row"><span class="ds-k">Output</span><span class="ds-v">Cell Builder, Material Explorer</span></div>
-        <div class="ds-row"><span class="ds-k">Status</span><span class="ds-v" style="color:#52bdb0">Active</span></div>
+        <div class="readme-body">
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> name</span><span class="rv">Akshit Kumar</span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> role</span><span class="rv">Senior Software Engineer</span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> org</span><span class="rv">BMW Group — Cell Intelligence</span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> location</span><span class="rv">Munich, Germany</span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> experience</span><span class="rv">10 years <span class="tag green">senior</span></span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> prior</span><span class="rv">Infosys → Oracle → Cisco → VMware → TWAICE</span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> stack</span><span class="rv">React · TypeScript · Python · Java</span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> output</span><span class="rv"><a href="#work">Cell Builder</a> · <a href="#work">Material Explorer</a></span></div>
+          <div class="readme-row"><span class="rk"><span class="hash">#</span> status</span><span class="rv"><span class="tag green">active</span></span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -352,12 +436,12 @@
 
 <section class="section" id="work">
   <div class="wrap">
-    <div class="spec-num">SPEC 02 — MODULES SHIPPED</div>
+    <div class="spec-num">SECTION 02 — SHIPPED</div>
     <h2 class="section-title">What I've built at BMW</h2>
     <p class="section-intro">Cell Intelligence supports cell engineering and research for next-generation BMW vehicles. Here's what I've led inside it.</p>
     <div class="module-list">
       <div class="module">
-        <div class="m-id">MODULE&nbsp;01<span class="big">Cell Builder</span></div>
+        <div class="m-id">MODULE 01<span class="big">Cell Builder</span></div>
         <div>
           <h3>Physics-based cell design calculator</h3>
           <p>Creates Prismatic, Cylindrical & Pouch cell designs at OEM/supplier level. Takes material and geometric inputs and computes the full cell performance budget — capacity, energy density, mass, stack thickness, irreversible losses, and more.</p>
@@ -369,7 +453,7 @@
         </div>
       </div>
       <div class="module">
-        <div class="m-id">MODULE&nbsp;02<span class="big">Material Explorer</span></div>
+        <div class="m-id">MODULE 02<span class="big">Material Explorer</span></div>
         <div>
           <h3>Best-fit materials discovery tool</h3>
           <p>Exploration engine for finding best-fitted battery materials for cell manufacturing — built on a hybrid SQL + RAG architecture over proprietary materials data.</p>
@@ -381,7 +465,7 @@
         </div>
       </div>
       <div class="module">
-        <div class="m-id">MODULE&nbsp;03<span class="big">Team Lead</span></div>
+        <div class="m-id">MODULE 03<span class="big">Team Lead</span></div>
         <div>
           <h3>Managing intern workflows in cell research</h3>
           <p>Directing a team of interns across different workflows in battery cell research, improvising process as the platform's scope grows.</p>
@@ -397,7 +481,7 @@
 
 <section class="section" id="stack">
   <div class="wrap">
-    <div class="spec-num">SPEC 03 — MATERIALS BILL</div>
+    <div class="spec-num">SECTION 03 — DEPENDENCIES</div>
     <h2 class="section-title">Tools I build with</h2>
     <div class="stack-grid">
       <div class="stack-block">
@@ -424,69 +508,78 @@
 
 <section class="section" id="journey">
   <div class="wrap">
-    <div class="spec-num">SPEC 04 — SERIES CONFIGURATION</div>
-    <h2 class="section-title">A decade, wired like a battery pack</h2>
-    <p class="section-intro">Six cells in series — each one a company, each weld a transition. Voltage builds up over the whole stack.</p>
-    <div class="pack">
-      <div class="pack-rail">
-        <div class="cell-unit">
-          <div class="cell-body"><div class="cell-cap"></div>
-            <div class="cell-year">2016–2019</div>
-            <div class="cell-co">Infosys</div>
-            <div class="cell-role">System Eng → Sr. System Eng</div>
-            <div class="cell-dur">3 YR 5 MO</div>
+    <div class="spec-num">SECTION 04 — COMMIT LOG</div>
+    <h2 class="section-title">A decade of commits</h2>
+    <p class="section-intro">Six positions, one continuous build. Each role was an iteration — sometimes a refactor, sometimes a new feature branch.</p>
+    <div class="tl">
+      <div class="tl-track">
+        <div class="tl-line"></div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+          <div class="tl-body">
+            <div class="tl-year">2016–2019</div>
+            <div class="tl-co">Infosys</div>
+            <div class="tl-role">System Engineer → Sr. System Engineer</div>
+            <div class="tl-dur">3 YR 5 MO</div>
           </div>
         </div>
-        <div class="weld"></div>
-        <div class="cell-unit">
-          <div class="cell-body"><div class="cell-cap"></div>
-            <div class="cell-year">2019–2021</div>
-            <div class="cell-co">Oracle</div>
-            <div class="cell-role">App Eng → Sr. App Eng</div>
-            <div class="cell-dur">2 YR 1 MO</div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+          <div class="tl-body">
+            <div class="tl-year">2019–2021</div>
+            <div class="tl-co">Oracle</div>
+            <div class="tl-role">Applications Engineer → Sr. Applications Engineer</div>
+            <div class="tl-dur">2 YR 1 MO</div>
           </div>
         </div>
-        <div class="weld"></div>
-        <div class="cell-unit">
-          <div class="cell-body"><div class="cell-cap"></div>
-            <div class="cell-year">2021–2022</div>
-            <div class="cell-co">Cisco</div>
-            <div class="cell-role">Software Engineer III</div>
-            <div class="cell-dur">6 MO</div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+          <div class="tl-body">
+            <div class="tl-year">2021–2022</div>
+            <div class="tl-co">Cisco</div>
+            <div class="tl-role">Software Engineer III</div>
+            <div class="tl-dur">6 MO</div>
           </div>
         </div>
-        <div class="weld"></div>
-        <div class="cell-unit">
-          <div class="cell-body"><div class="cell-cap"></div>
-            <div class="cell-year">2022</div>
-            <div class="cell-co">VMware</div>
-            <div class="cell-role">Member of Tech Staff 3</div>
-            <div class="cell-dur">6 MO</div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+          <div class="tl-body">
+            <div class="tl-year">2022</div>
+            <div class="tl-co">VMware</div>
+            <div class="tl-role">Member of Technical Staff 3</div>
+            <div class="tl-dur">6 MO</div>
           </div>
         </div>
-        <div class="weld"></div>
-        <div class="cell-unit">
-          <div class="cell-body"><div class="cell-cap"></div>
-            <div class="cell-year">2022–2024</div>
-            <div class="cell-co">TWAICE</div>
-            <div class="cell-role">Sr. Software Eng — Battery Quick Check</div>
-            <div class="cell-dur">1 YR 11 MO</div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+          <div class="tl-body">
+            <div class="tl-year">2022–2024</div>
+            <div class="tl-co">TWAICE</div>
+            <div class="tl-role">Sr. Software Engineer — Battery Quick Check</div>
+            <div class="tl-dur">1 YR 11 MO</div>
           </div>
         </div>
-        <div class="weld"></div>
-        <div class="cell-unit">
-          <div class="cell-body current"><div class="cell-cap"></div>
-            <div class="cell-year">2024–Present</div>
-            <div class="cell-co">BMW Group</div>
-            <div class="cell-role">Sr. Software Eng — Cell Intelligence</div>
-            <div class="cell-dur">1 YR 10 MO · LIVE</div>
+
+        <div class="tl-item current">
+          <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+          <div class="tl-body">
+            <div class="tl-year">2024–Present</div>
+            <div class="tl-co">BMW Group</div>
+            <div class="tl-role">Sr. Software Engineer — Cell Intelligence</div>
+            <div class="tl-dur">1 YR 10 MO · LIVE</div>
           </div>
         </div>
+
       </div>
-      <div class="pack-meta">
-        <span>PACK VOLTAGE: 10 YRS CUMULATIVE</span>
-        <span>CONFIG: 6S SERIES</span>
-        <span>STATUS: CHARGING</span>
+      <div class="tl-meta">
+        <span><span class="hl">✦</span> TOTAL: 10 YEARS</span>
+        <span><span class="hl">✦</span> 6 POSITIONS</span>
+        <span><span class="hl">✦</span> SENIOR TRACK</span>
       </div>
     </div>
   </div>
@@ -494,23 +587,22 @@
 
 <section class="section" id="values">
   <div class="wrap">
-    <div class="spec-num">SPEC 05 — HANDLING NOTES</div>
+    <div class="spec-num">SECTION 05 — MANIFEST</div>
     <h2 class="section-title">How I approach the work</h2>
-    <div class="handling-grid">
-      <div class="handling-item"><div class="hi-code">§01</div><h5>Architecture First</h5><p>Scalable, resilient design decisions before a line of code — built for maintainability, not just delivery.</p></div>
-      <div class="handling-item"><div class="hi-code">§02</div><h5>Domain Depth</h5><p>Software is only as good as the domain understanding behind it — real time invested in electrochemistry, not just APIs.</p></div>
-      <div class="handling-item"><div class="hi-code">§03</div><h5>Physics-Grounded AI</h5><p>ML suggestions are only useful when checked against real physical feasibility.</p></div>
-      <div class="handling-item"><div class="hi-code">§04</div><h5>Mentorship</h5><p>Growing the interns I manage into independent contributors matters as much as shipping features.</p></div>
-      <div class="handling-item"><div class="hi-code">§05</div><h5>Future-Proofing</h5><p>Code quality and clean architecture for business needs that haven't been written yet.</p></div>
-      <div class="handling-item"><div class="hi-code">§06</div><h5>Dive Deep</h5><p>Improvise on solutions rather than settle for the first one that compiles.</p></div>
+    <div class="principles-grid">
+      <div class="principle-item"><div class="pi-code">§ 01</div><h5>Architecture First</h5><p>Scalable, resilient design decisions before a line of code — built for maintainability, not just delivery.</p></div>
+      <div class="principle-item"><div class="pi-code">§ 02</div><h5>Domain Depth</h5><p>Software is only as good as the domain understanding behind it — real time invested in electrochemistry, not just APIs.</p></div>
+      <div class="principle-item"><div class="pi-code">§ 03</div><h5>Physics-Grounded AI</h5><p>ML suggestions are only useful when checked against real physical feasibility.</p></div>
+      <div class="principle-item"><div class="pi-code">§ 04</div><h5>Mentorship</h5><p>Growing the interns I manage into independent contributors matters as much as shipping features.</p></div>
+      <div class="principle-item"><div class="pi-code">§ 05</div><h5>Future-Proofing</h5><p>Code quality and clean architecture for business needs that haven't been written yet.</p></div>
+      <div class="principle-item"><div class="pi-code">§ 06</div><h5>Deep Dive</h5><p>Improvise on solutions rather than settle for the first one that compiles.</p></div>
     </div>
   </div>
 </section>
 
 <footer class="contact" id="contact">
   <div class="wrap">
-    <div class="stamp"><span>QUALITY</span><span class="big">CHECKED</span><span>AK · 2026</span></div>
-    <h2 class="contact-title">Let's talk<br>batteries.</h2>
+    <h2 class="contact-title">Let's <span class="accent">build</span> something.</h2>
     <div class="contact-links">
       <a class="btn btn-primary" href="https://www.linkedin.com/in/akshit-kr" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn btn-ghost" href="mailto:you@example.com">Email me</a>
@@ -518,7 +610,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Akshit Kumar</span>
-      <span>Munich, Germany</span>
+      <span>Built with ⌨️ in Munich</span>
       <span>GitHub Pages</span>
     </div>
   </div>
